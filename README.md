@@ -28,11 +28,16 @@ This repository contains all laboratory exercises completed throughout the cours
 IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS/
 │
 ├── README.md
-├── Lab1_Account_Security_and_IAM.md
-├── Lab2_Secure_Isolation_and_Multitenancy.md
-├── Lab3_Encryption_and_Key_Management.md
-├── Lab4_Access_Control_and_Network_Security.md
-└── Lab5_Monitoring_Logging_and_Incident_Detection.md
+├── Lab1_Account_Security_and_IAM/
+│   └── README.md
+├── Lab2_Secure_Isolation_and_Multitenancy/
+│   └── README.md
+├── Lab3_Encryption_and_Key_Management/
+│   └── README.md
+├── Lab4_Access_Control_and_Network_Security/
+│   └── README.md
+└── Lab5_Monitoring_Logging_and_Incident_Detection/
+    └── README.md
 ```
 
 ---
