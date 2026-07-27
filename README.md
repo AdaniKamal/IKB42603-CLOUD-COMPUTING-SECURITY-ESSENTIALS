@@ -10,7 +10,7 @@ This repository contains all laboratory exercises completed throughout the cours
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 | Week | Lab | Folder |
 |------|-----|--------|
@@ -20,29 +20,7 @@ This repository contains all laboratory exercises completed throughout the cours
 | Week 4 | Lab 4 | `Lab4_Access_Control_and_Network_Security` |
 | Week 5 | Lab 5 | `Lab5_Monitoring_Logging_and_Incident_Detection` |
 
----
-
-## 📁 Folder Layout
-
-```text
-IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS/
-│
-├── README.md
-├── Lab1_Account_Security_and_IAM/
-│   └── README.md
-├── Lab2_Secure_Isolation_and_Multitenancy/
-│   └── README.md
-├── Lab3_Encryption_and_Key_Management/
-│   └── README.md
-├── Lab4_Access_Control_and_Network_Security/
-│   └── README.md
-└── Lab5_Monitoring_Logging_and_Incident_Detection/
-    └── README.md
-```
-
----
-
-## 📝 Submission Guidelines
+## Submission Guidelines
 
 For each laboratory:
 
@@ -64,7 +42,7 @@ Complete Lab 1
 
 ---
 
-## 📌 Recommended Lab Documentation
+## Recommended Lab Documentation
 
 Each lab should include:
 
@@ -91,6 +69,84 @@ Each lab should include:
 - CloudTrail
 - CloudWatch
 - AWS CLI
+
+---
+
+## Getting Started
+
+### Step 1 — Create Your Repository
+
+Create a new GitHub repository named:
+
+```text
+IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS
+```
+
+### Step 2 — Clone Your Repository
+
+Replace `<your-github-username>` with your GitHub username.
+
+```bash
+git clone https://github.com/<your-github-username>/IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS.git
+```
+
+Move into the project.
+
+```bash
+cd IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS
+```
+
+### Step 3 — Create the Folder Structure
+
+Your repository should look like this.
+
+```text
+IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS/
+│
+├── README.md
+├── Lab1_Account_Security_and_IAM/
+│   └── README.md
+├── Lab2_Secure_Isolation_and_Multitenancy/
+│   └── README.md
+├── Lab3_Encryption_and_Key_Management/
+│   └── README.md
+├── Lab4_Access_Control_and_Network_Security/
+│   └── README.md
+└── Lab5_Monitoring_Logging_and_Incident_Detection/
+    └── README.md
+```
+
+### Step 4 — Save Your Work
+
+Check the current status.
+
+```bash
+git status
+```
+
+Add all files.
+
+```bash
+git add .
+```
+
+Commit your changes.
+
+```bash
+git commit -m "Complete Lab 1"
+```
+
+Push your work to GitHub.
+
+```bash
+git push origin main
+```
+
+> If your default branch is `master`, replace `main` with `master`.
+
+### Step 5 — Verify
+
+Visit your GitHub repository and ensure your latest commit has been uploaded successfully.
 
 ---
 
