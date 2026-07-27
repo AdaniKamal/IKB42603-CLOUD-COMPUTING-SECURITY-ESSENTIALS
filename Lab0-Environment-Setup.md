@@ -46,7 +46,8 @@ docker --version
 
 The evidence shows Docker version `29.6.1`, build `8900f1d`.
 
-![Docker version verification](Evidence/1.docker.png)
+<img width="646" height="81" alt="1 docker" src="https://github.com/user-attachments/assets/811a73da-5d6a-4dde-8e33-96edbef77e4c" />
+
 
 The guide also recommends confirming Docker can run containers with:
 
