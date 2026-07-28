@@ -6,6 +6,7 @@
 **Lab:** Lab 0 - Environment Setup  
 **Guide Used:** `IKB42603_Lab0_Environment_Setup_Cheatsheet.pdf`  
 **Date:** 27 July 2026  
+**Name:** Adani Kamal
 
 ## Objective
 
