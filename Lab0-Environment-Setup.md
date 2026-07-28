@@ -3,7 +3,7 @@
 **Course:** IKB42603 Cloud Computing Security Essentials  
 **Lab:** Lab 0 - Environment Setup  
 **Guide used:** `IKB42603_Lab0_Environment_Setup_Cheatsheet.pdf`  
-**Evidence folder:** `Evidence/`
+**Name:** `Student Name`
 
 ## 1. Objective
 
