@@ -4,8 +4,7 @@ Welcome to my **Cloud Computing Security Essentials** lab repository.
 
 This repository contains all laboratory exercises completed throughout the course. Each lab focuses on a fundamental aspect of cloud security, from identity management to monitoring and incident detection.
 
-> **Course:** IKB42603 - Cloud Computing Security Essentials  
-> **Instructor:** *Ts. Adani Kamal*  
+> **Course:** IKB42603 - Cloud Computing Security Essentials   
 > **Semester:** *<Sem 2 / Year 4>*
 
 ---
