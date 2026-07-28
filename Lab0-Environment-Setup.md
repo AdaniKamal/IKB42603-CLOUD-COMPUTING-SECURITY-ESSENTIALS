@@ -47,7 +47,7 @@ Docker version 28.5.2+dfsg4, build 9cc6dea35e9a963f281434761c656fba4ac43aed
 
 ### Evidence
 
-![Docker version evidence](Evidence/1.docker.png)
+<img width="729" height="69" alt="1 docker" src="https://github.com/user-attachments/assets/0c371c92-2583-4234-8589-a0ea28f6fca8" />g)
 
 ## 4. AWS CLI v2 Installation and Verification
 
