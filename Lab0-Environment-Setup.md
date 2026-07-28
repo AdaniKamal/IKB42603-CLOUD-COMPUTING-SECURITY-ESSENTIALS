@@ -3,9 +3,8 @@
 ## Course Information
 
 **Course:** IKB42603 Cloud Computing Security Essentials  
-**Lab:** Lab 0 - Environment Setup  
-**Guide Used:** `IKB42603_Lab0_Environment_Setup_Cheatsheet.pdf`  
-**Name:** Adani Kamal  
+**Lab:** Lab 0 - Environment Setup   
+**Name:** Student name 
 **Date:** 27 July 2026  
 
 ## Objective
