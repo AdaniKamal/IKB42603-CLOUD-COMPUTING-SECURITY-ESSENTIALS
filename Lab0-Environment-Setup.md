@@ -1,276 +1,330 @@
 # Lab 0: Environment Setup Report
 
-## Course Information
-
 **Course:** IKB42603 Cloud Computing Security Essentials  
 **Lab:** Lab 0 - Environment Setup  
-**Guide Used:** `IKB42603_Lab0_Environment_Setup_Cheatsheet.pdf`  
-**Date:** 27 July 2026  
-**Name:** Adani Kamal
+**Guide used:** `IKB42603_Lab0_Environment_Setup_Cheatsheet.pdf`  
+**Evidence folder:** `Evidence/`
 
-## Objective
+## 1. Objective
 
-The objective of this setup is to prepare the local lab environment required before Lab 1. Based on the setup cheatsheet, the environment must support Docker, AWS CLI v2, kind, kubectl, OpenSSL, oathtool, LocalStack, and a local Kubernetes cluster.
+The objective of this lab was to install, configure, and verify the local tools required before starting Lab 1. The setup follows the Lab 0 Environment Setup Cheatsheet and prepares a local cloud security lab environment using Docker, AWS CLI, LocalStack, kind, kubectl, OpenSSL, and oathtool.
 
-All services are intended to run locally. LocalStack is used as the local AWS simulator, and kind is used to run Kubernetes inside Docker.
+The lab environment is designed to run locally without using a real AWS account. AWS CLI commands are pointed to LocalStack using the endpoint `http://localhost:4566`.
 
-## Environment Summary
+## 2. Tools Required by the Guide
 
-| Component | Verified Version / Status | Evidence |
+| Tool | Purpose | Used In |
 | --- | --- | --- |
-| Docker | Docker version 29.6.1 | `Evidence/1.docker.png` |
-| AWS CLI | aws-cli/2.36.8 | `Evidence/2.awscli.png` |
-| kind | kind v0.32.0 | `Evidence/3.kind_kubectl.png` |
-| kubectl | Client version v1.36.1, Kustomize v5.8.1 | `Evidence/3.kind_kubectl.png` |
-| OpenSSL | OpenSSL 3.6.3 | `Evidence/4.Helper_tools.png` |
-| oathtool | OATH Toolkit 2.6.14 | `Evidence/4.Helper_tools.png` |
-| LocalStack | Running and healthy on port 4566 | `Evidence/5.localstack.png` |
-| Kubernetes | kind cluster `ccse` running with node `ccse-control-plane` ready | `Evidence/5.1.kubenetes.png` |
-| AWS CLI LocalStack endpoint | Dummy credentials and endpoint variable configured | `Evidence/6.one-time.png` |
+| Docker | Runs containers and the LocalStack cloud simulator | All labs |
+| AWS CLI v2 | Sends AWS commands to LocalStack | Labs 1, 3, 5 |
+| kind | Runs a local Kubernetes cluster inside Docker | Labs 1, 2, 4 |
+| kubectl | Controls the Kubernetes cluster | Labs 1, 2, 4 |
+| OpenSSL | Supports encryption, keys, and certificates | Lab 3 |
+| oathtool | Generates MFA/TOTP codes | Lab 4 |
+| Trivy | Scans container images for vulnerabilities through Docker | Lab 4 |
 
-## Step 1: Install and Verify Docker
+## 3. Docker Installation and Verification
 
-Docker is required to run containers, LocalStack, and the kind Kubernetes cluster.
+Docker is required because the lab environment uses containers for LocalStack and for the Kubernetes cluster created by kind.
 
-According to the guide, Docker Desktop should be installed on Windows or macOS. On Linux, Docker can be installed using the official convenience script:
+### Steps
 
-```bash
-curl -fsSL https://get.docker.com | sh
-sudo usermod -aG docker $USER
-```
-
-After installation, Docker was verified with:
+1. Install Docker according to the operating system.
+2. Start Docker.
+3. Verify the Docker installation:
 
 ```bash
 docker --version
 ```
 
-The evidence shows Docker version `29.6.1`, build `8900f1d`.
+### Result
 
-<img width="646" height="81" alt="1 docker" src="https://github.com/user-attachments/assets/811a73da-5d6a-4dde-8e33-96edbef77e4c" />
+Docker was successfully installed and the version command returned:
 
-
-The guide also recommends confirming Docker can run containers with:
-
-```bash
-docker run --rm hello-world
+```text
+Docker version 28.5.2+dfsg4, build 9cc6dea35e9a963f281434761c656fba4ac43aed
 ```
 
-## Step 2: Install and Verify AWS CLI v2
+### Evidence
 
-AWS CLI v2 is required to send AWS-style commands to LocalStack during the labs.
+![Docker version evidence](Evidence/1.docker.png)
 
-The guide provides these installation options:
+## 4. AWS CLI v2 Installation and Verification
 
-| Operating System | Installation Method |
-| --- | --- |
-| Windows | Download and run the AWS CLI v2 MSI installer from AWS |
-| macOS | Install using `brew install awscli` or the AWS `.pkg` installer |
-| Linux | Download and install the AWS CLI v2 ZIP package |
+AWS CLI v2 is required to run AWS-style commands against LocalStack. The guide notes that a real AWS account is not required for these labs.
 
-Linux installation command from the guide:
+### Steps
 
-```bash
-curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o awscliv2.zip
-unzip awscliv2.zip && sudo ./aws/install
-```
-
-AWS CLI was verified with:
+1. Install AWS CLI v2.
+2. Verify the AWS CLI installation:
 
 ```bash
 aws --version
 ```
 
-The evidence shows AWS CLI version `2.36.8`.
+### Result
 
-![AWS CLI version verification](Evidence/2.awscli.png)
+AWS CLI v2 was successfully installed. The command returned:
 
-No real AWS account is required for this lab because AWS CLI commands are pointed to LocalStack.
-
-## Step 3: Install and Verify kind and kubectl
-
-kind is used to create a local Kubernetes cluster inside Docker. kubectl is used to interact with the Kubernetes cluster.
-
-The guide provides these installation options:
-
-| Operating System | kind | kubectl |
-| --- | --- | --- |
-| Windows | `choco install kind` | `choco install kubernetes-cli` |
-| macOS | `brew install kind` | `brew install kubectl` |
-| Linux | Download the kind binary | `sudo snap install kubectl --classic` |
-
-Linux kind installation command from the guide:
-
-```bash
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.23.0/kind-linux-amd64
-chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind
+```text
+aws-cli/2.36.9 Python/3.14.6 Linux/6.16.8+kali-arm64 exe/aarch64.kali.2025
 ```
 
-The tools were verified with:
+### Evidence
+
+![AWS CLI version evidence](Evidence/2.awscli.png)
+
+## 5. kind and kubectl Installation and Verification
+
+The guide requires kind for creating a Kubernetes cluster inside Docker and kubectl for controlling that cluster.
+
+### Steps
+
+1. Install kind.
+2. Install kubectl.
+3. Verify kind:
 
 ```bash
 kind --version
+```
+
+4. Verify kubectl:
+
+```bash
 kubectl version --client
 ```
 
-The evidence shows:
+### Result
 
-- kind version `0.32.0`
-- kubectl client version `v1.36.1`
-- Kustomize version `v5.8.1`
+kind was successfully installed and verified:
 
-![kind and kubectl verification](Evidence/3.kind_kubectl.png)
+```text
+kind version 0.32.0
+```
 
-## Step 4: Install and Verify Helper Tools
+kubectl was also installed and verified:
 
-The guide lists helper tools used in later labs:
+```text
+Client Version: v1.33.4
+Kustomize Version: v5.5.0
+```
 
-| Tool | Purpose |
-| --- | --- |
-| OpenSSL | Encryption, keys, and certificates |
-| oathtool | MFA / TOTP code generation |
-| Trivy | Container vulnerability scanning, run through Docker in Lab 4 |
+One screenshot shows an earlier `kind` execution format error, which indicates the wrong binary architecture was attempted at first. This was resolved, as confirmed by the later successful kind verification screenshot.
 
-The tools were verified with:
+### Evidence
+
+![kubectl client version evidence](Evidence/3.kubectl.png)
+
+![kind version evidence](Evidence/3.1-kind.png)
+
+## 6. Helper Tools Verification
+
+The guide lists OpenSSL and oathtool as helper tools. OpenSSL is used for encryption, keys, and certificates. oathtool is used for MFA/TOTP code generation.
+
+### Steps
+
+1. Verify OpenSSL:
 
 ```bash
 openssl version
+```
+
+2. Verify oathtool:
+
+```bash
 oathtool --version
 ```
 
-The evidence shows:
+### Result
 
-- OpenSSL `3.6.3`
-- oathtool / OATH Toolkit `2.6.14`
+OpenSSL was verified successfully:
 
-![Helper tools verification](Evidence/4.Helper_tools.png)
-
-Trivy does not require a separate installation for this setup because the guide runs it through Docker:
-
-```bash
-docker run --rm aquasec/trivy image <name>
+```text
+OpenSSL 3.5.4 30 Sep 2025
 ```
 
-## Step 5: Start and Verify LocalStack
+oathtool was verified successfully:
 
-LocalStack provides a local AWS-compatible environment for the labs.
+```text
+oathtool (OATH Toolkit) 2.6.14
+```
 
-The guide starts LocalStack with:
+### Evidence
+
+![Helper tools evidence](Evidence/4.Helper.png)
+
+## 7. LocalStack Startup and Verification
+
+LocalStack provides the local AWS-compatible environment used by the labs.
+
+### Steps
+
+1. Start LocalStack:
 
 ```bash
 docker run -d --name localstack -p 4566:4566 localstack/localstack
 ```
 
-In this setup, the evidence shows LocalStack running with the pinned image `localstack/localstack:3.0`:
+2. Check that the container is running:
 
 ```bash
-docker run -d --name localstack -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack:3.0
-```
-
-LocalStack was checked with:
-
-```bash
-curl http://localhost:4566/_localstack/health
 docker ps
 ```
 
-The health endpoint returned available services, and `docker ps` showed the LocalStack container running with a healthy status on port `4566`.
-
-![LocalStack health verification](Evidence/5.localstack.png)
-
-Useful LocalStack lifecycle commands from the guide:
+3. Confirm LocalStack health:
 
 ```bash
-docker stop localstack
-docker start localstack
-docker rm -f localstack
+curl http://localhost:4566/_localstack/health
 ```
 
-## Step 6: Create and Verify the Kubernetes Cluster
+### Result
 
-The guide creates a local kind cluster named `ccse`:
+The Docker process list shows the LocalStack container running with healthy status:
+
+```text
+localstack/localstack:3.0
+Status: Up 17 minutes (healthy)
+Ports: 0.0.0.0:4566->4566/tcp
+```
+
+### Evidence
+
+![LocalStack running evidence](Evidence/5.localstack.png)
+
+## 8. Kubernetes Cluster Creation and Verification
+
+The guide requires creating a local Kubernetes cluster with kind and verifying it using kubectl.
+
+### Steps
+
+1. Create the cluster:
 
 ```bash
 kind create cluster --name ccse
 ```
 
-The cluster was verified with:
+2. Verify cluster information:
 
 ```bash
 kubectl cluster-info --context kind-ccse
+```
+
+3. Verify cluster nodes:
+
+```bash
 kubectl get nodes
 ```
 
-The evidence confirms:
+### Result
 
-- Kubernetes control plane is running on `127.0.0.1`
-- CoreDNS is running
-- Node `ccse-control-plane` is `Ready`
-- Kubernetes version is `v1.36.1`
+The Kubernetes cluster was created successfully. The cluster information shows that the Kubernetes control plane and CoreDNS are running.
 
-![Kubernetes cluster verification](Evidence/5.1.kubenetes.png)
+The node list shows the cluster control plane is ready:
 
-The guide removes the cluster with:
-
-```bash
-kind delete cluster --name ccse
+```text
+NAME                 STATUS   ROLES           VERSION
+ccse-control-plane   Ready    control-plane   v1.36.1
 ```
 
-## Step 7: Configure AWS CLI for LocalStack
+The Docker process list also shows the kind node container running:
 
-LocalStack accepts dummy credentials, so the AWS CLI was configured with test values:
+```text
+kindest/node:v1.36.1
+Name: ccse-control-plane
+```
+
+### Evidence
+
+![Kubernetes cluster evidence](Evidence/5.1.kubenetes.png)
+
+![Docker process list showing kind and LocalStack](Evidence/5.localstack.png)
+
+## 9. One-Time AWS CLI Configuration for LocalStack
+
+The guide explains that LocalStack accepts dummy AWS credentials. These values are configured so the AWS CLI does not prompt for credentials.
+
+### Steps
+
+1. Configure a dummy AWS access key:
 
 ```bash
 aws configure set aws_access_key_id test
+```
+
+2. Configure a dummy AWS secret access key:
+
+```bash
 aws configure set aws_secret_access_key test
+```
+
+3. Configure the default AWS region:
+
+```bash
 aws configure set region us-east-1
 ```
 
-The guide recommends saving the LocalStack endpoint in a variable for each terminal session:
+4. Set the LocalStack endpoint variable for the current shell session:
 
 ```bash
 EP='--endpoint-url=http://localhost:4566'
+```
+
+5. Test AWS CLI communication with LocalStack:
+
+```bash
 aws $EP sts get-caller-identity
 ```
 
-The evidence shows the dummy AWS CLI values configured and the endpoint variable set:
+### Result
 
-```bash
-EP='--endpoint-url=http://localhost:4566'
+The AWS CLI successfully communicated with LocalStack and returned a dummy identity:
+
+```json
+{
+    "UserId": "AKIAIOSFODNN7EXAMPLE",
+    "Account": "000000000000",
+    "Arn": "arn:aws:iam::000000000000:root"
+}
 ```
 
-![AWS CLI LocalStack configuration](Evidence/6.one-time.png)
+### Evidence
 
-This ensures AWS CLI commands target LocalStack instead of real AWS services.
+![AWS CLI LocalStack configuration evidence](Evidence/6-config.png)
 
-## Pre-Lab Verification Checklist
+## 10. Pre-Lab Verification Checklist
 
-| Check | Status |
-| --- | --- |
-| `docker --version` prints a version | Completed |
-| `aws --version` prints AWS CLI v2 | Completed |
-| `kind --version` works | Completed |
-| `kubectl version --client` works | Completed |
-| `openssl version` works | Completed |
-| `oathtool --version` works | Completed |
-| LocalStack health endpoint responds | Completed |
-| Kubernetes cluster `ccse` is running | Completed |
-| `kubectl get nodes` shows a ready node | Completed |
-| AWS CLI dummy credentials are configured | Completed |
-| LocalStack endpoint variable is configured | Completed |
+| Check | Status | Evidence |
+| --- | --- | --- |
+| `docker --version` prints a version | Complete | `Evidence/1.docker.png` |
+| `aws --version` prints AWS CLI v2 | Complete | `Evidence/2.awscli.png` |
+| `kind --version` works | Complete | `Evidence/3.1-kind.png` |
+| `kubectl version --client` works | Complete | `Evidence/3.kubectl.png` |
+| OpenSSL works | Complete | `Evidence/4.Helper.png` |
+| oathtool works | Complete | `Evidence/4.Helper.png` |
+| LocalStack container starts | Complete | `Evidence/5.localstack.png` |
+| LocalStack is healthy | Complete | `Evidence/5.localstack.png` |
+| Kubernetes cluster is created | Complete | `Evidence/5.1.kubenetes.png` |
+| `kubectl get nodes` shows a ready node | Complete | `Evidence/5.1.kubenetes.png` |
+| AWS CLI can call LocalStack STS | Complete | `Evidence/6-config.png` |
 
-## Troubleshooting Notes from the Guide
+## 11. Troubleshooting Notes
 
-| Symptom | Recommended Fix |
-| --- | --- |
-| Cannot connect to Docker daemon | Start Docker Desktop or re-login after adding the Linux user to the `docker` group |
-| Docker will not start | Enable hardware virtualization in BIOS/UEFI; on Windows enable WSL 2 and Virtual Machine Platform |
-| Port `4566` already in use | Remove the existing LocalStack container with `docker rm -f localstack` and start it again |
-| AWS CLI cannot connect to endpoint URL | Start LocalStack and make sure `--endpoint-url=http://localhost:4566` or `$EP` is used |
-| `aws`, `kind`, or `kubectl` command not found | Reinstall the tool and open a new terminal so PATH updates are loaded |
-| kind cluster creation fails | Make sure Docker is running and has enough memory allocated |
-| MFA / TOTP code fails in later labs | Enable automatic system time synchronization |
+During verification, an earlier screenshot showed:
 
-## Conclusion
+```text
+zsh: exec format error: kind
+```
 
-The Lab 0 environment setup was completed successfully. Docker, AWS CLI v2, kind, kubectl, OpenSSL, oathtool, LocalStack, and the local kind Kubernetes cluster were installed and verified. The system is ready for the next IKB42603 Cloud Computing Security Essentials lab activities using LocalStack and Kubernetes.
+This usually happens when the installed binary does not match the system architecture. The issue was resolved by using a working kind binary, as shown by:
+
+```text
+kind version 0.32.0
+```
+
+This confirms that the final kind installation is working.
+
+## 12. Conclusion
+
+The Lab 0 environment setup was completed successfully. Docker, AWS CLI v2, kind, kubectl, OpenSSL, oathtool, LocalStack, and the local Kubernetes cluster were installed or verified according to the setup guide. AWS CLI was configured with dummy credentials and successfully connected to LocalStack through the local endpoint.
+
+The system is ready for Lab 1.
