@@ -5,7 +5,7 @@
 **Course:** IKB42603 Cloud Computing Security Essentials  
 **Lab:** Lab 0 - Environment Setup   
 **Name:** Student name 
-**Date:** 27 July 2026  
+<br> **Date:** 27 July 2026  
 
 ## Objective
 
