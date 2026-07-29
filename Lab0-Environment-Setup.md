@@ -48,11 +48,11 @@ docker --version
 
 The Mac proof shows Docker version `29.6.1`, build `8900f1d`.
 
-![Mac Docker version verification](Evidence/1.docker.png)
+<img width="646" height="81" alt="1 docker" src="https://github.com/user-attachments/assets/37dd09a8-cee1-4347-8d87-dd8bf0f629a3" />
 
 The Kali proof shows Docker version `28.5.2`.
 
-![Kali Docker version verification](Evidence/kali/1.docker.png)
+<img width="729" height="69" alt="1 docker" src="https://github.com/user-attachments/assets/c843bbee-6aac-4e9d-8a58-7dc4bf0c55f2" />
 
 The guide also recommends confirming Docker can run containers with:
 
@@ -87,11 +87,12 @@ aws --version
 
 The Mac proof shows AWS CLI version `2.36.8`.
 
-![Mac AWS CLI version verification](Evidence/2.awscli.png)
+<img width="639" height="61" alt="2 awscli" src="https://github.com/user-attachments/assets/a381d0ec-e0b2-4727-badd-b3e2f03b4fef" />
+
 
 The Kali proof shows AWS CLI version `2.36.9`.
 
-![Kali AWS CLI version verification](Evidence/kali/2.awscli.png)
+<img width="714" height="76" alt="2 awscli" src="https://github.com/user-attachments/assets/5905bbe6-f23b-4cab-858e-88d5bbabcfee" />
 
 No real AWS account is required for this lab because AWS CLI commands are pointed to LocalStack.
 
@@ -127,7 +128,7 @@ The Mac proof shows:
 - kubectl client version `v1.36.1`
 - Kustomize version `v5.8.1`
 
-![Mac kind and kubectl verification](Evidence/3.kind_kubectl.png)
+<img width="372" height="73" alt="3 kind_kubectl" src="https://github.com/user-attachments/assets/5fdd5883-97e1-46ad-b8cc-6f011b217d45" />
 
 The Kali proof shows:
 
@@ -135,9 +136,8 @@ The Kali proof shows:
 - kubectl client version `v1.33.4`
 - Kustomize version `v5.5.0`
 
-![Kali kind verification](Evidence/kali/3.1-kind.png)
-
-![Kali kubectl verification](Evidence/kali/3.kubectl.png)
+<img width="281" height="124" alt="3 kubectl" src="https://github.com/user-attachments/assets/aaed1ba6-5da6-41f7-86c9-f167657a579b" />
+<img width="213" height="64" alt="3 1-kind" src="https://github.com/user-attachments/assets/b4b81d4f-ba9a-4708-bfc1-7f148d897ee6" />
 
 ## Step 4: Install and Verify Helper Tools
 
@@ -161,14 +161,14 @@ The Mac proof shows:
 - OpenSSL `3.6.3`
 - oathtool / OATH Toolkit `2.6.14`
 
-![Mac helper tools verification](Evidence/4.Helper_tools.png)
+<img width="1191" height="147" alt="4 Helper_tools" src="https://github.com/user-attachments/assets/41450a83-e696-482a-90a7-ab4a0f333263" />
 
 The Kali proof shows:
 
 - OpenSSL `3.5.4`
 - oathtool / OATH Toolkit `2.6.14`
 
-![Kali helper tools verification](Evidence/kali/4.Helper.png)
+<img width="767" height="225" alt="4 Helper" src="https://github.com/user-attachments/assets/ab5ee65a-285b-4074-bf6f-0dff1ba4ba15" />
 
 Trivy does not require a separate installation for this setup because the guide runs it through Docker:
 
@@ -201,11 +201,11 @@ docker ps
 
 The health endpoint returned available services, and `docker ps` showed the LocalStack container running with a healthy status on port `4566`.
 
-![Mac LocalStack health verification](Evidence/5.localstack.png)
+<img width="1280" height="164" alt="5 localstack" src="https://github.com/user-attachments/assets/d5d11631-185a-45aa-b216-40069d216fbe" />
 
 The Kali proof shows the `localstack/localstack:3.0` container running with a healthy status and port `4566` mapped.
 
-![Kali LocalStack health verification](Evidence/kali/5.localstack.png)
+<img width="1493" height="165" alt="5 localstack" src="https://github.com/user-attachments/assets/29649b39-b099-427a-9185-3d83407240b8" />
 
 Useful LocalStack lifecycle commands from the guide:
 
@@ -237,11 +237,11 @@ The Mac proof confirms:
 - Node `ccse-control-plane` is `Ready`
 - Kubernetes version is `v1.36.1`
 
-![Mac Kubernetes cluster verification](Evidence/5.1.kubenetes.png)
+<img width="1147" height="135" alt="5 1 kubenetes" src="https://github.com/user-attachments/assets/f9eab168-faed-420b-9dcf-ceed899e429d" />
 
 The Kali proof confirms the same `ccse` kind cluster status, with node `ccse-control-plane` in the `Ready` state.
 
-![Kali Kubernetes cluster verification](Evidence/kali/5.1.kubenetes.png)
+<img width="1147" height="135" alt="5 1 kubenetes" src="https://github.com/user-attachments/assets/02eecdcc-9f0d-4f7e-ac87-71045efce38f" />
 
 The guide removes the cluster with:
 
@@ -272,17 +272,17 @@ The Mac proof shows the dummy AWS CLI values configured and the endpoint variabl
 EP='--endpoint-url=http://localhost:4566'
 ```
 
-![Mac AWS CLI LocalStack configuration](Evidence/6.one-time.png)
+<img width="1151" height="63" alt="6 one-time" src="https://github.com/user-attachments/assets/c0f074e5-686b-4ffb-b9be-1babd85b8953" />
 
 The Kali proof shows the dummy credentials configured, the endpoint variable set, and `aws $EP sts get-caller-identity` returning a LocalStack test identity.
 
-![Kali AWS CLI LocalStack configuration](Evidence/kali/6-config.png)
+<img width="469" height="307" alt="6-config" src="https://github.com/user-attachments/assets/009166ad-cb36-4cc5-b0ee-34d5c2852184" />
 
 This ensures AWS CLI commands target LocalStack instead of real AWS services.
 
 ## Pre-Lab Verification Checklist
 
-| Check | Mac Status | Kali Status |
+| Check | MacOS | Kali OS |
 | --- | --- | --- |
 | `docker --version` prints a version | Completed | Completed |
 | `aws --version` prints AWS CLI v2 | Completed | Completed |
