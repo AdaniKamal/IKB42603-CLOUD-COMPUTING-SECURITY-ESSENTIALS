@@ -1,5 +1,14 @@
 # ☁️ IKB42603 - Cloud Computing Security Essentials
 
+![GitHub](https://img.shields.io/badge/IKB42603-CloudComputingSecurityEssentials-blue)
+
+![Docker](https://img.shields.io/badge/Skills-IAM-green)
+![Docker](https://img.shields.io/badge/Skills-Lambda-green)
+![Docker](https://img.shields.io/badge/Skills-S3-green)
+![Docker](https://img.shields.io/badge/Skills-Encryption-green)
+
+![License](https://img.shields.io/badge/License-MIT-red)
+
 Welcome to my **Cloud Computing Security Essentials** lab repository.
 
 This repository contains all laboratory exercises completed throughout the course. Each lab focuses on a fundamental aspect of cloud security, from identity management to monitoring and incident detection.
