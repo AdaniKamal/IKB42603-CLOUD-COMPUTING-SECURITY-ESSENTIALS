@@ -149,6 +149,7 @@ Visit your GitHub repository and ensure your latest commit has been uploaded suc
 ## 📖 Reference
 
 [1] https://awsfundamentals.com/glossary
+[2] https://rajendrakhope.com/aws-identity-and-access-management-iam-basics/
 
 ## 📖 Academic Integrity
 
