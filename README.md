@@ -146,6 +146,9 @@ git push origin main
 Visit your GitHub repository and ensure your latest commit has been uploaded successfully.
 
 ---
+## 📖 Reference
+
+[1] https://awsfundamentals.com/glossary
 
 ## 📖 Academic Integrity
 
