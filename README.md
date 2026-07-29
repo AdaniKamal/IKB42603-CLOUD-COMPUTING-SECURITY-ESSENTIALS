@@ -111,6 +111,8 @@ IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS/
 └── Lab5_Monitoring_Logging_and_Incident_Detection.md
 ```
 
+<img width="1479" height="807" alt="localstack" src="https://github.com/user-attachments/assets/7d6025ca-9074-48b9-b73b-3f0363c7201f" />
+
 ### Step 4 — Save Your Work
 
 Check the current status.
