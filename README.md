@@ -50,7 +50,7 @@ Complete Lab 1
 
 ---
 
-## Recommended Lab Documentation
+## Recommended Lab Documentation (Idea)
 
 Each lab should include:
 
