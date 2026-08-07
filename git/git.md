@@ -135,3 +135,19 @@ Before pushing screenshots to GitHub, check whether any screenshot exposes secre
 
 Do not publish real cloud credentials, passwords, tokens or secret keys.
 
+## 9. Error (Not sync)
+
+If you get this error, its means your local version with git version is not the same.
+
+This happen may because:
+- You edit in web git.
+- You upload something in web git.
+
+![Git error not latest](git-evidence/9-error.png)
+
+```text
+git pull
+```
+
+![Git pull](git-evidence/10-git_pull.png)
+
