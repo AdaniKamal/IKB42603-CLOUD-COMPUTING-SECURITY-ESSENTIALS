@@ -27,6 +27,7 @@ This repository contains all laboratory exercises completed throughout the cours
 | Week 3 | Lab 3 | `Lab3_Encryption_and_Key_Management` |
 | Week 4 | Lab 4 | `Lab4_Access_Control_and_Network_Security` |
 | Week 5 | Lab 5 | `Lab5_Monitoring_Logging_and_Incident_Detection` |
+| Week 7 | Lab 6 | `Object Storage Security and the Data Security Lifecycle` |
 
 ## Submission Guidelines
 
@@ -146,6 +147,16 @@ Push your work to GitHub.
 
 ```bash
 git push origin main
+```
+
+Full step:
+```bash
+cd "/Users/a00147042/Documents/Personal/UniKL/IKB42603 Cloud Computing Security Essentials Package/Lab/IKB42603-CLOUD-COMPUTING-SECURITY-ESSENTIALS"
+git add Lab6/report.md Lab6/Evidence/*.png
+git status
+git commit -m "Add Lab 6 report and evidence"
+git pull --rebase origin main
+git push -u origin main
 ```
 
 > If your default branch is `master`, replace `main` with `master`.
